@@ -1,7 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:tubes_motion/app/routes/app_pages.dart';
+import 'package:tubes_motion/app/widgets/button.dart';
 import 'package:tubes_motion/app/widgets/text_field_auth.dart';
+import 'package:tubes_motion/app/widgets/text_route_auth.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -20,7 +24,7 @@ class LoginView extends GetView<LoginController> {
                 height: 50,
               ),
               Center(
-                child: Image.asset("assets/images/wortelColour.png"),
+                child: Image.asset("assets/images/wortelLogin.png"),
               ),
               SizedBox(
                 height: 60,
@@ -58,6 +62,39 @@ class LoginView extends GetView<LoginController> {
                   onPressed: () {},
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "Forgot Password?",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Button(
+                  title: "Log In",
+                  onPressed: () {
+                    Get.toNamed(Routes.DASHBOARD);
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              TextRouteAuth(
+                  title: "Don't have an account?",
+                  onPressed: () {
+                    Get.toNamed(Routes.REGISTER);
+                  },
+                  subTitle: "Sign Up!"),
             ],
           ),
         ),

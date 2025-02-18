@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tubes_motion/app/routes/app_pages.dart';
+import 'package:tubes_motion/app/widgets/button.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -49,27 +50,12 @@ class HomeView extends GetView<HomeController> {
                 SizedBox(
                   height: 10,
                 ),
-                GestureDetector(
-                  onTap: (){
+                Button(
+                  title: "Get Started",
+                  onPressed: (){
                     Get.toNamed(Routes.LOGIN);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xff53B175),
-                      borderRadius: BorderRadius.circular(18)
-                    ),
-                    width: 350,
-                    height: 60,
-                    child: Center(
-                      child: Text("Get Started",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),),
-                    ),
-                  ),
-                )
+                },),
+
               ],
             ),
           ),

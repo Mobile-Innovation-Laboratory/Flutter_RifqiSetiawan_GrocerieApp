@@ -7,6 +7,10 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const DASHBOARD = _Paths.DASHBOARD;
+  static const FAVORITE = _Paths.FAVORITE;
+  static const ACCOUNT = _Paths.ACCOUNT;
+  static const CART = _Paths.CART;
+  static const EXPLORE = _Paths.EXPLORE;
 }
 
 abstract class _Paths {
@@ -15,4 +19,8 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const DASHBOARD = '/dashboard';
+  static const FAVORITE = '/favorite';
+  static const ACCOUNT = '/account';
+  static const CART = '/cart';
+  static const EXPLORE = '/explore';
 }
