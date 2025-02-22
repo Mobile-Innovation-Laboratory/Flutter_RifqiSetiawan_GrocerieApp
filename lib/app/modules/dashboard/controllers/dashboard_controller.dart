@@ -4,15 +4,15 @@ import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   //TODO: Implement DashboardController
+  var currentIndex = 0.obs;
   TextEditingController searchInput = TextEditingController();
   final List<String> imageList = [
     'assets/images/banner1.png',
-    'https://source.unsplash.com/random/800x600?2',
-    'https://source.unsplash.com/random/800x600?3',
-    'https://source.unsplash.com/random/800x600?4',
+    'assets/images/banner1.png',
+    'assets/images/banner1.png',
   ];
     CarouselSliderController buttonCarouselController = CarouselSliderController();
-
+  
   @override
   void onInit() {
     super.onInit();
@@ -27,5 +27,7 @@ class DashboardController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
+    void updateIndex(int index) {
+    currentIndex.value = index;
+  }
 }
