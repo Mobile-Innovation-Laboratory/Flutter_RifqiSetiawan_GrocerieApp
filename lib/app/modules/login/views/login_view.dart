@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:tubes_motion/app/routes/app_pages.dart';
-import 'package:tubes_motion/app/widgets/button.dart';
-import 'package:tubes_motion/app/widgets/text_field_auth.dart';
-import 'package:tubes_motion/app/widgets/text_route_auth.dart';
+import 'package:tubes_motion/app/widgets/button_widget.dart';
+import 'package:tubes_motion/app/widgets/text_field_auth_widget.dart';
+import 'package:tubes_motion/app/widgets/text_route_auth_widget.dart';
 
 import '../controllers/login_controller.dart';
 

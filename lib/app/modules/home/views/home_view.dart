@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tubes_motion/app/routes/app_pages.dart';
-import 'package:tubes_motion/app/widgets/button.dart';
+import 'package:tubes_motion/app/widgets/button_widget.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
