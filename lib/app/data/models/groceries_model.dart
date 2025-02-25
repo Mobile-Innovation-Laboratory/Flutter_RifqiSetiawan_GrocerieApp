@@ -1,7 +1,4 @@
-
-import 'dart:ffi';
-
-class ProductModel {
+class GroceriesModel {
     int? id;
     String? title;
     String? description;
@@ -11,7 +8,7 @@ class ProductModel {
     int? stock;
     double? rating;
 
-    ProductModel({
+    GroceriesModel({
         this.id,
         this.title,
         this.description,
@@ -21,7 +18,7 @@ class ProductModel {
         this.isFavorite = false,
     });
 
-    factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
+    factory GroceriesModel.fromJson(Map<String, dynamic> json) => GroceriesModel(
         id: json["id"],
         title: json["title"],
         description: json["description"],

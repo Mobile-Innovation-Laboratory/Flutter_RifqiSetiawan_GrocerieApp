@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:tubes_motion/app/data/models/data_groceries_model.dart';
+import 'package:tubes_motion/app/data/models/groceries_model.dart';
+import 'package:tubes_motion/app/data/services/groceries_service.dart';
 
 class DashboardController extends GetxController {
   //TODO: Implement DashboardController
@@ -11,11 +14,16 @@ class DashboardController extends GetxController {
     'assets/images/banner1.png',
     'assets/images/banner1.png',
   ];
-    CarouselSliderController buttonCarouselController = CarouselSliderController();
-  
+  CarouselSliderController buttonCarouselController =
+      CarouselSliderController();
+  var grocerie = DataGroceriesModel().obs;
+  var groceries = <GroceriesModel>[].obs;
+  var isLoading = true.obs;
+
   @override
   void onInit() {
     super.onInit();
+    fetchGroceries();
   }
 
   @override
@@ -27,7 +35,15 @@ class DashboardController extends GetxController {
   void onClose() {
     super.onClose();
   }
-    void updateIndex(int index) {
+
+  void updateIndex(int index) {
     currentIndex.value = index;
+  }
+
+  void fetchGroceries() async {
+    grocerie.value =
+        await GroceriesService().getGroceries() ?? DataGroceriesModel();
+    groceries.value = grocerie.value.products ?? [];
+    isLoading.value = false;
   }
 }
