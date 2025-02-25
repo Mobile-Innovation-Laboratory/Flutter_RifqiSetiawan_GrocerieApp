@@ -19,11 +19,14 @@ class DashboardController extends GetxController {
   var grocerie = DataGroceriesModel().obs;
   var groceries = <GroceriesModel>[].obs;
   var isLoading = true.obs;
-
+  var excGroceries = <GroceriesModel>[].obs;
   @override
   void onInit() {
     super.onInit();
     fetchGroceries();
+
+    // print(groceries);
+    // print('contoh exclusive ${excGroceries}');
   }
 
   @override
@@ -44,6 +47,7 @@ class DashboardController extends GetxController {
     grocerie.value =
         await GroceriesService().getGroceries() ?? DataGroceriesModel();
     groceries.value = grocerie.value.products ?? [];
+    excGroceries.value = groceries.sublist(0,3);
     isLoading.value = false;
   }
 }

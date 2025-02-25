@@ -5,7 +5,7 @@ class GroceriesModel {
     double? price;
     String? thumbnail;
     bool isFavorite;
-    int? stock;
+    double? stock;
     double? rating;
 
     GroceriesModel({
@@ -15,6 +15,7 @@ class GroceriesModel {
         this.price,
         this.thumbnail,
         this.rating,
+        this.stock,
         this.isFavorite = false,
     });
 
@@ -23,6 +24,7 @@ class GroceriesModel {
         title: json["title"],
         description: json["description"],
         price: json["price"]?.toDouble(),
+        stock: json["stock"]?.toDouble(),
         rating: json["rating"]?.toDouble(),
         thumbnail: json["thumbnail"],
     );
@@ -32,6 +34,7 @@ class GroceriesModel {
         "title": title,
         "description": description,
         "price": price,
+        "stock": stock,
         "rating": rating,
         "thumbnail": thumbnail,
     };
