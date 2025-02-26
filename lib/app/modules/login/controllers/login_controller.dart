@@ -8,7 +8,6 @@ class LoginController extends GetxController {
   TextEditingController passwordController = TextEditingController();
   bool isLogin = true;
   final AuthController authC = Get.find();
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();

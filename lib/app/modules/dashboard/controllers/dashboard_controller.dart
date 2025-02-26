@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:tubes_motion/app/data/models/data_groceries_model.dart';
 import 'package:tubes_motion/app/data/models/groceries_model.dart';
 import 'package:tubes_motion/app/data/services/groceries_service.dart';
+import 'package:tubes_motion/app/modules/cart/controllers/cart_controller.dart';
 
 class DashboardController extends GetxController {
   //TODO: Implement DashboardController
@@ -24,7 +25,7 @@ class DashboardController extends GetxController {
   var excGroceries = <GroceriesModel>[].obs;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  RxString username = ''.obs;
+  final CartController cartController = Get.find();
   @override
   void onInit() {
     super.onInit();

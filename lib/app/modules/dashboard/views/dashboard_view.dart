@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import 'package:tubes_motion/app/data/models/cart_model.dart';
+import 'package:tubes_motion/app/data/models/groceries_model.dart';
 import 'package:tubes_motion/app/routes/app_pages.dart';
 import 'package:tubes_motion/app/widgets/container_groceries_widget.dart';
 import 'package:tubes_motion/app/widgets/navbar/custom_navbar.dart';
@@ -140,7 +142,15 @@ class DashboardView extends GetView<DashboardController> {
                                             thumbnail: currentGrocerie.thumbnail,
                                             stock: currentGrocerie.stock,
                                             price: currentGrocerie.price,
-                                            onAddTap: () {}),
+                                            onAddTap: () {
+                                              Map<String, dynamic> grocerieCart = {
+                                              'grocerieId' : currentGrocerie.id,
+                                              'image' : currentGrocerie.thumbnail,
+                                              'price' : currentGrocerie.price,
+                                              'quantity' : 1,
+                                              'title' : currentGrocerie.title,};
+                                              controller.cartController.addItemToCart(grocerieCart);
+                                            }),
                                       );
                                     }),
                                 // GROCERIES END
