@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import 'package:tubes_motion/app/routes/app_pages.dart';
+import 'package:tubes_motion/app/widgets/container_groceries_widget.dart';
 import 'package:tubes_motion/app/widgets/navbar/custom_navbar.dart';
 import 'package:tubes_motion/app/widgets/search_bar_widget.dart';
+import 'package:tubes_motion/app/widgets/text_dashboard.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -77,80 +80,74 @@ class DashboardView extends GetView<DashboardController> {
                               ),
                             ),
                             SizedBox(height: 30),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Exclusive Offer",
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                Text(
-                                  "See all",
-                                  style: TextStyle(
-                                    color: Color(0xff53B175),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            TextDashboard(text: "Exclusive Offer"),
                             SizedBox(height: 20),
+                            // EXCLUSIVE GROCERIES START
                             SizedBox(
-                              height: 240,
+                              height: 260,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: controller.excGroceries.length,
                                 itemBuilder: (context, index) {
                                   final currExcGroceries =
                                       controller.excGroceries[index];
-                                  return Container(
-                                    height: 150,
-                                    width: 200,
-                                    margin: EdgeInsets.only(right: 16),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      border: Border.all(
-                                        color: Color(0xffE2E2E2),
-                                        width: 1,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          width: 150,
-                                          height: 150,
-                                          child: Center(
-                                            child: Image.network(
-                                              currExcGroceries.thumbnail ?? "",
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          currExcGroceries.title ?? "",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          '${currExcGroceries.stock ?? 0}, Priceg',
-                                          style: TextStyle(
-                                            color: Color(0xff7C7C7C),
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                  return GestureDetector(
+                                    onTap: (){
+                                      Get.toNamed(Routes.DETAIL_GROCERIE, arguments: {'grocerie' : currExcGroceries});
+                                    },
+                                    child: ContainerGroceriesWidget(
+                                        title: currExcGroceries.title,
+                                        thumbnail: currExcGroceries.thumbnail,
+                                        stock: currExcGroceries.stock,
+                                        price: currExcGroceries.price,
+                                        onAddTap: () {}),
                                   );
                                 },
                               ),
+                            ),
+                            // EXCLUSIVE GROCERIES END
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Column(
+                              children: [
+                                TextDashboard(text: "Groceries"),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                // GROCERIES START
+                                GridView.builder(
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    itemCount: controller.groceries.length,
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 15,
+                                      mainAxisSpacing: 18,
+                                      mainAxisExtent: 265,
+                                    ),
+                                    itemBuilder: (context, index) {
+                                      var currentGrocerie =
+                                          controller.groceries[index];
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Get.toNamed(Routes.DETAIL_GROCERIE, arguments: {'grocerie' : currentGrocerie});
+                                        },
+                                        child: ContainerGroceriesWidget(
+                                            title: currentGrocerie.title,
+                                            thumbnail: currentGrocerie.thumbnail,
+                                            stock: currentGrocerie.stock,
+                                            price: currentGrocerie.price,
+                                            onAddTap: () {}),
+                                      );
+                                    }),
+                                // GROCERIES END
+                              ],
+                            ),
+                            SizedBox(
+                              height: 50,
                             ),
                           ],
                         ),

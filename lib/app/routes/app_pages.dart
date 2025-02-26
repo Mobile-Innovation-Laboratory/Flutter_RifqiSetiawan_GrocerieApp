@@ -6,6 +6,8 @@ import '../modules/cart/bindings/cart_binding.dart';
 import '../modules/cart/views/cart_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/detail_grocerie/bindings/detail_grocerie_binding.dart';
+import '../modules/detail_grocerie/views/detail_grocerie_view.dart';
 import '../modules/explore/bindings/explore_binding.dart';
 import '../modules/explore/views/explore_view.dart';
 import '../modules/favorite/bindings/favorite_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.EXPLORE,
       page: () => const ExploreView(),
       binding: ExploreBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_GROCERIE,
+      page: () => const DetailGrocerieView(),
+      binding: DetailGrocerieBinding(),
     ),
   ];
 }
