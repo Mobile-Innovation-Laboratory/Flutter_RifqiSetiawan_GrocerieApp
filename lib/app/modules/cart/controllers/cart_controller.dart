@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
@@ -19,5 +20,20 @@ class CartController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  Future<void> addToCart(
+      String userId, Map<String, dynamic> grocerie, int quantity) async {
+    final cartRef = FirebaseFirestore.instance
+        .collection('users')
+        .doc(userId)
+        .collection('cart');
+
+    await cartRef.doc(grocerie['id'].toString()).set({
+      'id': grocerie['id'],
+      'title': grocerie['title'],
+      'price': grocerie['price'],
+      'quantity': quantity,
+      'totalPrice': grocerie['price'] * quantity,
+      'thumbnail': grocerie['thumbnail'],
+    });
+  }
 }

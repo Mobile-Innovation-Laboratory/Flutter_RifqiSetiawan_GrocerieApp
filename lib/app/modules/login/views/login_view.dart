@@ -82,7 +82,7 @@ class LoginView extends GetView<LoginController> {
                 child: Button(
                   title: "Log In",
                   onPressed: () {
-                    Get.toNamed(Routes.DASHBOARD);
+                    controller.authC.login(controller.emailController.text, controller.passwordController.text);
                   },
                 ),
               ),

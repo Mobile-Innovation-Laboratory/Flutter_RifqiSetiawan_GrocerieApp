@@ -88,7 +88,7 @@ class RegisterView extends GetView<RegisterController> {
                 child: Button(
                   title: "Sign Up",
                   onPressed: () {
-                    
+                    controller.authC.signUp(controller.emailController.text, controller.passwordController.text, controller.usernameController.text);
                   },
                 ),
               ),

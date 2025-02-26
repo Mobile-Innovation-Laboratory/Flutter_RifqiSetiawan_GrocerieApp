@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155065374789",
+    "project_id": "grocerie-app-c70bd",
+    "storage_bucket": "grocerie-app-c70bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155065374789:android:28dbf2d0fe384141aa2b2c",
+        "android_client_info": {
+          "package_name": "rifqi.com.tubes_motion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXVt_b3j3QanH7gJHzcxlsfLb5o_rYx0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

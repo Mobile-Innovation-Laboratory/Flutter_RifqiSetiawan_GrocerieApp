@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tubes_motion/app/data/models/data_groceries_model.dart';
@@ -20,13 +22,15 @@ class DashboardController extends GetxController {
   var groceries = <GroceriesModel>[].obs;
   var isLoading = true.obs;
   var excGroceries = <GroceriesModel>[].obs;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  RxString username = ''.obs;
   @override
   void onInit() {
     super.onInit();
     fetchGroceries();
-
-    // print(groceries);
-    // print('contoh exclusive ${excGroceries}');
+    final user = _auth.currentUser?.uid;
+    print('ini id user: ${user}');
   }
 
   @override
