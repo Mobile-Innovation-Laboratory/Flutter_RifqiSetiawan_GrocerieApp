@@ -24,5 +24,13 @@ Grocify adalah platform belanja bahan makanan online yang memudahkan pengguna un
 
 ## Screenshot
 ![Alt Text](assets/screenshot/gambar1.png)
+![Alt Text](assets/screenshot/gambar2.png)
+![Alt Text](assets/screenshot/gambar3.png)
+![Alt Text](assets/screenshot/gambar4.png)
+![Alt Text](assets/screenshot/gambar5.png)
+![Alt Text](assets/screenshot/gambar6.png)
+![Alt Text](assets/screenshot/gambar7.png)
+![Alt Text](assets/screenshot/gambar8.png)
+![Alt Text](assets/screenshot/gambar9.png)
 
 
