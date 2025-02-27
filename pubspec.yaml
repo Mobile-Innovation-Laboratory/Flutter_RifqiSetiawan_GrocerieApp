@@ -75,12 +75,13 @@ flutter:
     - assets/images/banner1.png
     - assets/images/banner2.png
     - assets/images/banner3.png
+    - assets/images/wortel.png
 
 flutter_native_splash:
   color: "#53B175" 
-  image: assets/images/wortel.png 
+  background_image: assets/images/wortel.png 
   android_12:
-    image: assets/images/wortel.png 
+    background_image: assets/images/wortel.png 
   web: false
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
