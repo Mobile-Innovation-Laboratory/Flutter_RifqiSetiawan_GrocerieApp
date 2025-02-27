@@ -9,7 +9,6 @@ import 'package:tubes_motion/app/data/services/groceries_service.dart';
 import 'package:tubes_motion/app/modules/cart/controllers/cart_controller.dart';
 
 class DashboardController extends GetxController {
-  //TODO: Implement DashboardController
   var currentIndex = 0.obs;
   TextEditingController searchInput = TextEditingController();
   final List<String> imageList = [
