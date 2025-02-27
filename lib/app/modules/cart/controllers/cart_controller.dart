@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
+  var totalPrice = 0.0.obs;
   var cartItems = [].obs;
   String? uid = FirebaseAuth.instance.currentUser?.uid;
   var isLoading = false.obs;
@@ -12,6 +13,7 @@ class CartController extends GetxController {
     fetchCartItems();
     ever(cartItems, (_) {
       fetchCartItems();
+      calculateTotalPrice();
     });
   }
 
@@ -23,6 +25,13 @@ class CartController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+  void calculateTotalPrice() {
+    double total = 0.0;
+    for (var item in cartItems) {
+      total += (item["quantity"] * item["price"]);
+    }
+    totalPrice.value = double.parse(total.toStringAsFixed(2));
   }
 
   Future<void> fetchCartItems() async {

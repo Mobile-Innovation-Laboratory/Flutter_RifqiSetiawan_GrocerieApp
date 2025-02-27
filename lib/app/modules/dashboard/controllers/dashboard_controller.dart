@@ -12,9 +12,9 @@ class DashboardController extends GetxController {
   var currentIndex = 0.obs;
   TextEditingController searchInput = TextEditingController();
   final List<String> imageList = [
-    'assets/images/banner1.png',
-    'assets/images/banner2.png',
     'assets/images/banner3.png',
+    'assets/images/banner2.png',
+    'assets/images/banner1.png',
   ];
   CarouselSliderController buttonCarouselController =
       CarouselSliderController();
