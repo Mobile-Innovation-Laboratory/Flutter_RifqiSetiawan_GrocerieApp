@@ -23,5 +23,5 @@ Grocify adalah platform belanja bahan makanan online yang memudahkan pengguna un
 - Menekan tombol logout untuk keluar dari akun.
 
 ## Screenshot
-!(assets/gambar1.png)
+!(assets/screenshot/gambar1.png)
 
