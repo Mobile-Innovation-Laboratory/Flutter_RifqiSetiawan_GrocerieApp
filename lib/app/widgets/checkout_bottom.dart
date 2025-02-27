@@ -92,7 +92,11 @@ void showCheckoutBottomSheet(BuildContext context, RxDouble totalPrice) {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed(Routes.CHECKOUT);
+                Get.toNamed(Routes.CHECKOUT,
+                arguments: {
+                  'status' : 'Not verified',
+                  'totalPrice': totalPrice,
+                });
               },
               child: Text(
                 'Place Order',
