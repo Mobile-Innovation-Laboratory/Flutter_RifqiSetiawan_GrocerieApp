@@ -42,6 +42,8 @@ dependencies:
   firebase_auth: ^5.5.0
   cloud_firestore: ^5.6.4
   shared_preferences: ^2.5.2
+  flutter_native_splash: ^2.4.4
+    
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,12 @@ flutter:
     - assets/images/
   #   - images/a_dot_ham.jpeg
 
+flutter_native_splash:
+  color: "#53B175" 
+  image: assets/images/wortel.png 
+  android_12:
+    image: assets/images/wortel.png 
+  web: false
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
