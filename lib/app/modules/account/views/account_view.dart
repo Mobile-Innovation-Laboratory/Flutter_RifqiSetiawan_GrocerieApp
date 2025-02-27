@@ -19,13 +19,17 @@ class AccountView extends GetView<AccountController> {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
+                    SizedBox(height: 50,),
                     Row(
                       children: [
-                        SizedBox(height: 50,),
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage('assets/images/avatar'),
+                        SizedBox(
+                          height: 50,
                         ),
+                        Container(
+                          height: 60,
+                          width: 60,
+                          child: Image.asset("assets/images/wortelLogin.png"),
+                          ),
                         SizedBox(width: 16),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,22 +65,31 @@ class AccountView extends GetView<AccountController> {
                     AccountListTile(title: 'About', icon: Icons.info_outline),
                     SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () => controller.authC.logout(),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.logout_outlined),
+                          Icon(
+                            Icons.logout_outlined,
+                            color: Color(0xff53B175),
+                          ),
                           SizedBox(width: 8),
-                          Text('Log Out'),
+                          Text(
+                            'Log Out',
+                            style: TextStyle(
+                              color: Color(0xff53B175),
+                              fontSize: 18,
+                            ),
+                          ),
                         ],
                       ),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        backgroundColor: Colors.white,
+                        backgroundColor: const Color.fromARGB(255, 245, 239, 239),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                           side: BorderSide(color: Colors.grey),
                         ),
+                        minimumSize: Size(350, 60),
                       ),
                     ),
                   ],

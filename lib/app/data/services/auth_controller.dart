@@ -7,8 +7,7 @@ import 'package:tubes_motion/app/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore firestore =
-      FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final AuthService authService = AuthService();
   Rxn<User> firebaseUser = Rxn<User>();
 
@@ -60,7 +59,6 @@ class AuthController extends GetxController {
     }
   }
 
-  // Fungsi untuk menyimpan data pengguna ke Firestore
   Future<void> saveUserDataToFirestore(
       String uid, String email, String username, String password) async {
     try {
@@ -121,15 +119,15 @@ class AuthController extends GetxController {
 
   // Logout
   Future<void> logout() async {
-    if (firebaseUser.value == null) {
+    User? user = _auth.currentUser; 
+    if (user == null) {
       Get.snackbar("Error", "Tidak ada pengguna yang sedang login.");
       return;
     }
-
     await _auth.signOut();
     firebaseUser.value = null;
     update();
-     await authService.clearLoggedIn();
+    await authService.clearLoggedIn();
     Get.offAllNamed(Routes.LOGIN);
   }
 }
