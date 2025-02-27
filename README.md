@@ -1,16 +1,16 @@
-# tubes_motion
+# Grocify
+## Deskripsi
+Grocify adalah platform belanja bahan makanan online yang memudahkan pengguna untuk mendapatkan kebutuhan sehari-hari dengan cepat dan praktis. Dengan berbagai pilihan produk segar, mulai dari sayuran, buah-buahan, daging, hingga kebutuhan rumah tangga lainnya, aplikasi ini memastikan pengalaman berbelanja yang nyaman tanpa harus keluar rumah.
 
-A new Flutter project.
+## fitur
+- Fitur 1 : Splash Screen
+- Fitur 2 : Autentikasi dengan Firebase (Menyimpan data user yang sedang login ke dalam aplikasi dan status loginnya menggunakan shared preference)
+- Fitur 3 : Logout 
+- Fitur 4 : Mendapatkan list grocerie dengan public API
+- Fitur 5 : Menambahkan grocerie ke dalam cart
+- Fitur 6 : Edit quantity tiap grocerie dalam cart
+- Fitur 7 : Menghapus barang yang sudah terdaftar dalam cart
+- Fitur 8 : Terdapat caraousel untuk menarik perhatian user
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Penggunaan
