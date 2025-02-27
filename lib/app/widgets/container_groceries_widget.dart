@@ -47,6 +47,8 @@ class ContainerGroceriesWidget extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           Text(
             '${stock ?? 0}, Priceg',
@@ -69,6 +71,7 @@ class ContainerGroceriesWidget extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+              
               GestureDetector(
                 onTap: onAddTap, 
                 child: Container(

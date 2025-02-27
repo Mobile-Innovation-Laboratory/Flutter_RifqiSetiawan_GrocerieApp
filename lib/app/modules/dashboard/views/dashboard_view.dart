@@ -148,6 +148,7 @@ class DashboardView extends GetView<DashboardController> {
                                               'quantity' : 1,
                                               'title' : currentGrocerie.title,};
                                               controller.cartController.addItemToCart(grocerieCart);
+                                              Get.toNamed(Routes.CART);
                                             }),
                                       );
                                     }),

@@ -1,9 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class CheckoutController extends GetxController {
   //TODO: Implement CheckoutController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +19,5 @@ class CheckoutController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+   
 }

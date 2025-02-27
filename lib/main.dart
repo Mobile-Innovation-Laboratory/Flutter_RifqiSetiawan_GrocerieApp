@@ -20,9 +20,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 2), () {
-      FlutterNativeSplash.remove();
-    });
+    FlutterNativeSplash.remove();
     return GetMaterialApp(
       title: "Application",
       initialRoute: AppPages.INITIAL,

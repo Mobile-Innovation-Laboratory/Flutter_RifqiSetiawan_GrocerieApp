@@ -22,15 +22,14 @@ class DashboardController extends GetxController {
   var groceries = <GroceriesModel>[].obs;
   var isLoading = true.obs;
   var excGroceries = <GroceriesModel>[].obs;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final CartController cartController = Get.find();
+  
+  
   @override
   void onInit() {
     super.onInit();
     fetchGroceries();
-    final user = _auth.currentUser?.uid;
-    print('ini id user: ${user}');
   }
 
   @override

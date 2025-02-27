@@ -5,16 +5,19 @@ import 'package:get/get.dart';
 class CartController extends GetxController {
   var cartItems = [].obs;
   String? uid = FirebaseAuth.instance.currentUser?.uid;
+  var isLoading = false.obs;
   @override
   void onInit() {
     super.onInit();
     fetchCartItems();
+    ever(cartItems, (_) {
+      fetchCartItems();
+    });
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("CartController is now ready!");
   }
 
   @override
@@ -24,7 +27,6 @@ class CartController extends GetxController {
 
   Future<void> fetchCartItems() async {
     try {
-      print("Fetching cart items...");
       User? user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         String userId = user.uid;
@@ -33,8 +35,6 @@ class CartController extends GetxController {
             .doc(userId)
             .collection("cart")
             .get();
-
-        print("Jumlah dokumen di Firestore: ${cartSnapshot.docs.length}");
 
         cartItems.value = cartSnapshot.docs.map((doc) {
           return {
@@ -45,8 +45,6 @@ class CartController extends GetxController {
             "title": doc["title"],
           };
         }).toList();
-
-        print("Cart Items setelah fetch: ${cartItems.value}");
       } else {
         print("User belum login!");
       }
@@ -111,6 +109,67 @@ class CartController extends GetxController {
     } catch (e) {
       Get.snackbar("Error", "Gagal memeriksa keranjang: ${e.toString()}");
       return false;
+    }
+  }
+
+  Future<void> minusItemFromCart(int grocerieId) async {
+    try {
+      if (uid != null) {
+        QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(uid)
+            .collection('cart')
+            .where('grocerieId', isEqualTo: grocerieId)
+            .get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          DocumentSnapshot doc = querySnapshot.docs.first;
+          int currentQuantity = doc['quantity'];
+
+          if (currentQuantity > 1) {
+            await FirebaseFirestore.instance
+                .collection('users')
+                .doc(uid)
+                .collection('cart')
+                .doc(doc.id)
+                .update({'quantity': currentQuantity - 1});
+          } else {
+            await deleteItemFromCart(grocerieId);
+          }
+        }
+      } else {
+        Get.snackbar("Error", "Pengguna tidak login.");
+      }
+    } catch (e) {
+      Get.snackbar("Error", "Gagal mengurangi item: ${e.toString()}");
+    }
+  }
+
+  Future<void> deleteItemFromCart(int grocerieId) async {
+    try {
+      if (uid != null) {
+        QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(uid)
+            .collection('cart')
+            .where('grocerieId', isEqualTo: grocerieId)
+            .get();
+
+        for (var doc in querySnapshot.docs) {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(uid)
+              .collection('cart')
+              .doc(doc.id)
+              .delete();
+        }
+
+        Get.snackbar("Success", "Item berhasil dihapus dari keranjang.");
+      } else {
+        Get.snackbar("Error", "Pengguna tidak login.");
+      }
+    } catch (e) {
+      Get.snackbar("Error", "Gagal menghapus item: ${e.toString()}");
     }
   }
 }
